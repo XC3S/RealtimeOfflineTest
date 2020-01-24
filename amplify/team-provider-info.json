@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-realtimeofflinetest-dev-171846-authRole",
+            "UnauthRoleArn": "arn:aws:iam::405618765219:role/amplify-realtimeofflinetest-dev-171846-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::405618765219:role/amplify-realtimeofflinetest-dev-171846-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-realtimeofflinetest-dev-171846-deployment",
+            "UnauthRoleName": "amplify-realtimeofflinetest-dev-171846-unauthRole",
+            "StackName": "amplify-realtimeofflinetest-dev-171846",
+            "StackId": "arn:aws:cloudformation:eu-central-1:405618765219:stack/amplify-realtimeofflinetest-dev-171846/9e99aa70-3ecd-11ea-833c-02b8022d5b40",
+            "AmplifyAppId": "d3ixt5wd2t78ff"
+        }
+    }
+}

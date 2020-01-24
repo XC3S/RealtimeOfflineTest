@@ -1,27 +1,88 @@
-# Realtimeofflinetest
+#Dev Server
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
+ng serve --host 0.0.0.0 --port 8080 --disableHostCheck
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##What ive done
 
-## Code scaffolding
+###Angular Project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+npm install -g @angular/cli
 
-## Build
+ng new my-dream-app
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+cd my-dream-app
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Amplify CLI Setup
 
-## Running end-to-end tests
+npm install -g @aws-amplify/cli
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+amplify configure
 
-## Further help
+=> create account with link
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+### Init Amplify project
+
+npm install aws-amplify aws-amplify-angular 
+amplify init
+
+#### Polyfills
+
+(window as any).global = window;
+(window as any).process = {
+  env: { DEBUG: undefined },
+};
+
+
+#### src/tsconfig.app.json
+
+"compilerOptions": {
+    "types" : ["node"]
+}
+
+#### src/app/app.module.ts 
+
+import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
+
+@NgModule({
+  ...
+  imports: [
+    ...
+    AmplifyAngularModule
+  ],
+  ...
+  providers: [
+    ...
+    AmplifyService
+  ]
+  ...
+});
+
+
+
+
+
+### add api
+
+add a simple graphql api to generate a model
+
+amplify add api
+
+(graphql everything default, updated later)
+
+modify schema.graphql under amplify/backend/<project>/
+
+### generate models
+
+amplify codegen models
+
+### Usage
+
+npm i @aws-amplify/core @aws-amplify/datastore
+
+import Amplify from "@aws-amplify/core";
+import { DataStore, Predicates } from "@aws-amplify/datastore";
+import { Todo } from "./models";
+
