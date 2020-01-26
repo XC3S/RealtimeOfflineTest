@@ -1,12 +1,29 @@
+<amplify-authenticator [usernameAttributes]="usernameAttributes"></amplify-authenticator>
+
 <h1>{{title}}</h1>
 
 <div class="new-container">
   <input type="text"  [(ngModel)]="newTodo"><button (click)="addTodo()">new</button>
 </div>
-
+<br><br>
 
 <div class="list-container">
   <div *ngFor="let task of todos">
+    <ng-container *ngIf="editId != task.id; else editMode">
+       {{ task.name }} 
+       <button (click)="edit(task)">edit</button>
+       <button (click)="delete(task)">delete</button>
+    </ng-container>
+    
+    <ng-template #editMode>
+      <input type="text" [(ngModel)]="editTodo"/>
+      <button (click)="updateTodo(task.id,editTodo)">update</button>
+    </ng-template>
+  </div>
+  
+  <!--
+  <div *ngFor="let task of todos">
     <pre>{{task | json}}</pre>
   </div>
+  -->
 </div>
