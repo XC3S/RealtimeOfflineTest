@@ -1,6 +1,6 @@
 #Dev Server
 
-ng serve --host 0.0.0.0 --port 8080 --disableHostCheck
+`ng serve --host 0.0.0.0 --port 8080 --disableHostCheck`
 
 #Project
 ##What ive done
@@ -103,15 +103,16 @@ implements the application to work completle local, cloudsync is the next step
 ### update auth method to cognito user pools
 
 `amplify add auth`
-
+```
 -> Default Configuation
 -> email
 -> no, im done
+```
 
 ### update your api to use cognito
 
 `amplify update api`
-
+```
 -> GrapthQL
 -> Amazon Cognito User Pools
 -> Yes, I want to make some additional changes
@@ -121,13 +122,14 @@ implements the application to work completle local, cloudsync is the next step
 -> y (override model)
 -> toggle all your models and continue
 -> select "Optimistic Concurrency" for every model
+```
 
 ### push changes
 
 `amplify push`
 
 Do you want to generate code for your GraphQL API?
--> n (because we use datastore, not the api directly)
+`-> n (because we use datastore, not the api directly)`
 
 ## implement authenticator 
 
